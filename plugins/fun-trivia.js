@@ -37,7 +37,7 @@ let handler = async (m, { conn }) => {
 
   gam.set(m.sender, { pregunta, tiempoExpira });
 
-  let mensaje = `🎲 *Trivia - KanBot*\n\n*${pregunta.pregunta}*\n\n`;
+  let mensaje = `🎲 *Trivia - Juanca-Bot*\n\n*${pregunta.pregunta}*\n\n`;
   for (const [key, value] of Object.entries(pregunta.opciones)) {
     mensaje += `*${key.toUpperCase()}.* ${value}\n`;
   }
