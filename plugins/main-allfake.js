@@ -32,14 +32,14 @@ let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? c
 //let pp = await conn.profilePictureUrl(who, 'image').catch(_ => 'https://telegra.ph/file/327f6ad853cb4f405aa80.jpg')
 
 //creador y otros
-global.creador = 'Wa.me/573204545063'
+global.creador = 'Wa.me/573163963499'
 global.ofcbot = `${conn.user.jid.split('@')[0]}`
-global.asistencia = 'Wa.me/5351524614'
-global.namechannel = '✰ 𝙺𝚊𝚗𝙱𝚘𝚝 ✰'
-global.namechannel2 = '✰ 𝙺𝚊𝚗𝙱𝚘𝚝 ✰'
-global.namegrupo = '✰ 𝙺𝚊𝚗𝙱𝚘𝚝 ✰'
-global.namecomu = '✰ 𝙺𝚊𝚗𝙱𝚘𝚝 ✰'
-global.namecomu2 = '✰ 𝙺𝚊𝚗𝙱𝚘𝚝 ✰'
+global.asistencia = 'Wa.me/573163963499'
+global.namechannel = '꧁⪻♥𝐉บสกcส𝑏𝗈ţ♥⪼꧂'
+global.namechannel2 = '꧁⪻♥𝐉บสกcส𝑏𝗈ţ♥⪼꧂'
+global.namegrupo = '꧁⪻♥𝐉บสกcส𝑏𝗈ţ♥⪼꧂'
+global.namecomu = '꧁⪻♥𝐉บสกcส𝑏𝗈ţ♥⪼꧂'
+global.namecomu2 = '꧁⪻♥𝐉บสกcส𝑏𝗈ţ♥⪼꧂'
 global.colab1 = ''
 global.colab2 = ''
 global.colab3 = ''
@@ -63,12 +63,12 @@ global.waittt = '🕒 *𝗘𝘀𝗽𝗲𝗿𝗮 𝗨𝗻 𝗠𝗼𝗺𝗲𝗻�
 global.waitttt = '🕒 *𝗘𝘀𝗽𝗲𝗿𝗮 𝗨𝗻 𝗠𝗼𝗺𝗲𝗻𝘁𝗼.*';
 
 //Enlaces
-var grupo = 'https://chat.whatsapp.com/C5xsN9KcmIs8O1wNeOkcX9'
-var canal = 'https://whatsapp.com/channel/0029VakhAHc5fM5hgaQ8ed2N'  
+var grupo = 'https://chat.whatsapp.com/K1qPwXG87kS20ruW6XnC8Q'
+var canal = 'https://whatsapp.com/channel/0029Vb4W2X0BvvsdM0Vbcd3B'  
 var canal2 = 'https://whatsapp.com/channel/0029VakhAHc5fM5hgaQ8ed2N'
-var git = 'https://chat.whatsapp.com/C5xsN9KcmIs8O1wNeOkcX9' 
-var youtube = 'https://chat.whatsapp.com/C5xsN9KcmIs8O1wNeOkcX9' 
-var github = 'https://chat.whatsapp.com/C5xsN9KcmIs8O1wNeOkcX9' 
+var git = 'https://chat.whatsapp.com/K1qPwXG87kS20ruW6XnC8Q' 
+var youtube = 'https://chat.whatsapp.com/K1qPwXG87kS20ruW6XnC8Q' 
+var github = 'https://chat.whatsapp.com/K1qPwXG87kS20ruW6XnC8Q' 
 let correo = ''
 
 global.redes = [canal, canal2, grupo, git, youtube, github, correo].getRandom()
@@ -98,7 +98,7 @@ global.fkontak = { key: { participants:"0@s.whatsapp.net", "remoteJid": "status@
 
 // global.estilo = { key: {  fromMe: false, participant: `0@s.whatsapp.net`, ...(false ? { remoteJid: "5219992095479-1625305606@g.us" } : {}) }, message: { orderMessage: { itemCount : -999999, status: 1, surface : 1, message: `${packname}`, orderTitle: 'Bang', thumbnail: icons, sellerJid: '0@s.whatsapp.net'}}}
 
-global.fake = { contextInfo: { isForwarded: true, forwardedNewsletterMessageInfo: { newsletterJid: global,channel, newsletterName: "✰ 𝙺𝚊𝚗𝙱𝚘𝚝 ✰", serverMessageId: -1 }
+global.fake = { contextInfo: { isForwarded: true, forwardedNewsletterMessageInfo: { newsletterJid: global,channel, newsletterName: "꧁⪻♥𝐉บสกcส𝑏𝗈ţ♥⪼꧂", serverMessageId: -1 }
 }}, { quoted: m }
 
 global.icono = [ 
