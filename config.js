@@ -21,7 +21,7 @@ global.owner = [
 ];
 
 //• ↳𝑺𝑶𝑳𝑶 𝑴𝑶𝑫𝑬𝑹𝑨𝑫𝑶𝑹𝑬𝑺!
-global.mods = ['', '', '', '', '']
+global.mods = ['573163963499', '', '', '', '']
 
 global.suittag = ['']
 global.prems = []
@@ -39,7 +39,7 @@ global.yukiJadibts = true
 global.packsticker = ``
 global.packname = `꧁⪻♥𝐉บสกcส𝑏𝗈ţ♥⪼꧂`
 global.author = `《 ꧁⪻♥𝐉บสกcส𝑏𝗈ţ♥⪼꧂ 》\n【 By Juanca 】 `;
-global.wm = '✰ 𝙺𝚊𝚗𝙱𝚘𝚝 ✰';
+global.wm = '꧁⪻♥𝐉บสกcส𝑏𝗈ţ♥⪼꧂';
 global.titulowm = '꧁⪻♥𝐉บสกcส𝑏𝗈ţ♥⪼꧂';
 global.titulowm2 = `꧁⪻♥𝐉บสกcส𝑏𝗈ţ♥⪼꧂`
 global.igfg = '꧁⪻♥𝐉บสกcส𝑏𝗈ţ♥⪼꧂'
@@ -61,15 +61,15 @@ global.logo3 = fs.readFileSync('./src/logo3.jpg')*/
 global.photoSity = [imagen3]
 
 //• ↳ ◜𝑭𝑨𝑲𝑬 𝑬𝑺𝑻𝑰𝑳𝑶◞ • 🪩
-global.estilo = { key: {  fromMe: false, participant: `0@s.whatsapp.net`, ...(false ? { remoteJid: "5219992095479-1625305606@g.us" } : {}) }, message: { orderMessage: { itemCount : -999999, status: 1, surface : 1, message: '✰ 𝙺𝚊𝚗𝙱𝚘𝚝 ✰', orderTitle: 'Bang',  sellerJid: '0@s.whatsapp.net'}}}
+global.estilo = { key: {  fromMe: false, participant: `0@s.whatsapp.net`, ...(false ? { remoteJid: "5219992095479-1625305606@g.us" } : {}) }, message: { orderMessage: { itemCount : -999999, status: 1, surface : 1, message: '꧁⪻♥𝐉บสกcส𝑏𝗈ţ♥⪼꧂', orderTitle: 'Bang',  sellerJid: '0@s.whatsapp.net'}}}
 
-global.fakegif2 = { key: { participant: `0@s.whatsapp.net`, ...(false ? { remoteJid: "5219992095479-1625305606@g.us" } : {}) }, message: { videoMessage: { title: '✰ 𝙺𝚊𝚗𝙱𝚘𝚝 ✰', h: `Hmm`, seconds: '99999', gifPlayback: true, caption: '⚘݄𖠵⃕⁖𖥔.𝐁𝐢𝐞𝐧𝐯𝐞𝐧𝐢𝐝𝐨❞ ꔷ──᜔◇⃟̣̣⃕✨' }}};
+global.fakegif2 = { key: { participant: `0@s.whatsapp.net`, ...(false ? { remoteJid: "5219992095479-1625305606@g.us" } : {}) }, message: { videoMessage: { title: '꧁⪻♥𝐉บสกcส𝑏𝗈ţ♥⪼꧂', h: `Hmm`, seconds: '99999', gifPlayback: true, caption: '⚘݄𖠵⃕⁖𖥔.𝐁𝐢𝐞𝐧𝐯𝐞𝐧𝐢𝐝𝐨❞ ꔷ──᜔◇⃟̣̣⃕✨' }}};
 
-global.fakegif3 = { key: { participant: `0@s.whatsapp.net`, ...(false ? { remoteJid: "5219992095479-1625305606@g.us" } : {}) }, message: { videoMessage: { title: '✰ 𝙺𝚊𝚗𝙱𝚘𝚝 ✰', h: `Hmm`, seconds: '99999', gifPlayback: true, caption: '⚘݄𖠵⃕⁖𝐓𝐨𝐧𝐭𝐨 (￣へ ￣ ) 🔥' }}};
+global.fakegif3 = { key: { participant: `0@s.whatsapp.net`, ...(false ? { remoteJid: "5219992095479-1625305606@g.us" } : {}) }, message: { videoMessage: { title: '꧁⪻♥𝐉บสกcส𝑏𝗈ţ♥⪼꧂', h: `Hmm`, seconds: '99999', gifPlayback: true, caption: '⚘݄𖠵⃕⁖𝐓𝐨𝐧𝐭𝐨 (￣へ ￣ ) 🔥' }}};
 
-global.fakegif4 = { key: { participant: `0@s.whatsapp.net`, ...(false ? { remoteJid: "5219992095479-1625305606@g.us" } : {}) }, message: { videoMessage: { title: '✰ 𝙺𝚊𝚗𝙱𝚘𝚝 ✰', h: `Hmm`, seconds: '99999', gifPlayback: true, caption: '⚘݄𖠵⃕⁖𝐒𝐭𝐢𝐜𝐤𝐞𝐫 (^_^♪) 💥' }}};
+global.fakegif4 = { key: { participant: `0@s.whatsapp.net`, ...(false ? { remoteJid: "5219992095479-1625305606@g.us" } : {}) }, message: { videoMessage: { title: '꧁⪻♥𝐉บสกcส𝑏𝗈ţ♥⪼꧂', h: `Hmm`, seconds: '99999', gifPlayback: true, caption: '⚘݄𖠵⃕⁖𝐒𝐭𝐢𝐜𝐤𝐞𝐫 (^_^♪) 💥' }}};
 
-global.fgif2 = { key: {participant: `0@s.whatsapp.net`, ...(false ? { remoteJid: "6289643739077-1613049930@g.us" } : {})},message: {"videoMessage": { "title":`✰ 𝙺𝚊𝚗𝙱𝚘𝚝 ✰`, "h": `Hmm`,'seconds': '99999', 'gifPlayback': 'true', 'caption': `꧁⪻♥𝐉บสกcส𝑏𝗈ţ♥⪼꧂`}}}
+global.fgif2 = { key: {participant: `0@s.whatsapp.net`, ...(false ? { remoteJid: "6289643739077-1613049930@g.us" } : {})},message: {"videoMessage": { "title":`꧁⪻♥𝐉บสกcส𝑏𝗈ţ♥⪼꧂`, "h": `Hmm`,'seconds': '99999', 'gifPlayback': 'true', 'caption': `꧁⪻♥𝐉บสกcส𝑏𝗈ţ♥⪼꧂`}}}
 
 global.ch = {
 ch1: '120363318891913110@newsletter',
@@ -101,7 +101,7 @@ global.año = d.toLocaleDateString('es', {year: 'numeric'});
 global.tiempo = d.toLocaleString('en-US', {hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: true});
 //* ****************************
 global.wm2 = `${dia} ${fecha}\nblack - Bot`;
-global.nomorown = '525544876071';
+global.nomorown = '573163963499';
 global.pdoc = ['application/vnd.openxmlformats-officedocument.presentationml.presentation', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'application/vnd.ms-excel', 'application/msword', 'application/pdf', 'text/rtf'];
 global.cmenut = '❖––––––『';
 global.cmenub = '┊✦ ';
