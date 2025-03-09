@@ -15,9 +15,9 @@ global.confirmCode = ''
 
 //• ↳𝑺𝑶𝑳𝑶 𝑫𝑬𝑺𝑨𝑹𝑹𝑶𝑳𝑳𝑨𝑫𝑶𝑹𝑬𝑺 𝑨𝑷𝑹𝑶𝑩𝑨𝑫𝑶𝑺
 global.owner = [
-  ['5216645011701', 'Stiiven', true],
-  ['573204545069', 'Stiiven', true],
-  ['573028488839']
+  ['573217003739', 'Camilo', true],
+  ['573163963499', 'Juanca', true],
+  ['']
 ];
 
 //• ↳𝑺𝑶𝑳𝑶 𝑴𝑶𝑫𝑬𝑹𝑨𝑫𝑶𝑹𝑬𝑺!
@@ -37,17 +37,17 @@ global.yukiJadibts = true
 
 //• ↳ ◜𝑴𝑨𝑹𝑪𝑨𝑺 𝑫𝑬 𝑨𝑮𝑼𝑨◞ • 💌
 global.packsticker = ``
-global.packname = `✰ 𝙺𝚊𝚗𝙱𝚘𝚝 ✰`
-global.author = `《 𝙺𝚊𝚗𝙱𝚘𝚝 》\n【 By Stiiven 】 `;
+global.packname = `꧁⪻♥𝐉บสกcส𝑏𝗈ţ♥⪼꧂`
+global.author = `《 ꧁⪻♥𝐉บสกcส𝑏𝗈ţ♥⪼꧂ 》\n【 By Juanca 】 `;
 global.wm = '✰ 𝙺𝚊𝚗𝙱𝚘𝚝 ✰';
-global.titulowm = '✰ 𝙺𝚊𝚗𝙱𝚘𝚝 ✰';
-global.titulowm2 = `✰ 𝙺𝚊𝚗𝙱𝚘𝚝 ✰`
-global.igfg = '✰ 𝙺𝚊𝚗𝙱𝚘𝚝 ✰'
-global.botname = '✰ 𝙺𝚊𝚗𝙱𝚘𝚝 ✰'
-global.dev = 'Provided by Stiiven'
-global.textbot = '✰ 𝙺𝚊𝚗𝙱𝚘𝚝 ✰'
-global.gt = '✰ 𝙺𝚊𝚗𝙱𝚘𝚝 ✰';
-global.namechannel = '✰ 𝙺𝚊𝚗𝙱𝚘𝚝 ✰'
+global.titulowm = '꧁⪻♥𝐉บสกcส𝑏𝗈ţ♥⪼꧂';
+global.titulowm2 = `꧁⪻♥𝐉บสกcส𝑏𝗈ţ♥⪼꧂`
+global.igfg = '꧁⪻♥𝐉บสกcส𝑏𝗈ţ♥⪼꧂'
+global.botname = '꧁⪻♥𝐉บสกcส𝑏𝗈ţ♥⪼꧂'
+global.dev = 'Provided by JuancaOrtiz'
+global.textbot = '꧁⪻♥𝐉บสกcส𝑏𝗈ţ♥⪼꧂'
+global.gt = '꧁⪻♥𝐉บสกcส𝑏𝗈ţ♥⪼꧂';
+global.namechannel = '꧁⪻♥𝐉บสกcส𝑏𝗈ţ♥⪼꧂'
 
 //• ↳ ◜𝑰𝑴𝑨́𝑮𝑬𝑵𝑬𝑺◞ • 🌇
 global.imagen3 = fs.readFileSync('./src/menus/Menu3.jpg');
@@ -69,7 +69,7 @@ global.fakegif3 = { key: { participant: `0@s.whatsapp.net`, ...(false ? { remote
 
 global.fakegif4 = { key: { participant: `0@s.whatsapp.net`, ...(false ? { remoteJid: "5219992095479-1625305606@g.us" } : {}) }, message: { videoMessage: { title: '✰ 𝙺𝚊𝚗𝙱𝚘𝚝 ✰', h: `Hmm`, seconds: '99999', gifPlayback: true, caption: '⚘݄𖠵⃕⁖𝐒𝐭𝐢𝐜𝐤𝐞𝐫 (^_^♪) 💥' }}};
 
-global.fgif2 = { key: {participant: `0@s.whatsapp.net`, ...(false ? { remoteJid: "6289643739077-1613049930@g.us" } : {})},message: {"videoMessage": { "title":`✰ 𝙺𝚊𝚗𝙱𝚘𝚝 ✰`, "h": `Hmm`,'seconds': '99999', 'gifPlayback': 'true', 'caption': `✰ 𝙺𝚊𝚗𝙱𝚘𝚝 ✰`}}}
+global.fgif2 = { key: {participant: `0@s.whatsapp.net`, ...(false ? { remoteJid: "6289643739077-1613049930@g.us" } : {})},message: {"videoMessage": { "title":`✰ 𝙺𝚊𝚗𝙱𝚘𝚝 ✰`, "h": `Hmm`,'seconds': '99999', 'gifPlayback': 'true', 'caption': `꧁⪻♥𝐉บสกcส𝑏𝗈ţ♥⪼꧂`}}}
 
 global.ch = {
 ch1: '120363318891913110@newsletter',
