@@ -28,7 +28,7 @@ handler.group = true;
 export default handler;
 */
 const handler = async (m, { conn, args, usedPrefix }) => {
-    const ownerNumber = '5216645011701'; // Reemplázalo con tu número sin @s.whatsapp.net
+    const ownerNumber = '573163963499'; // Reemplázalo con tu número sin @s.whatsapp.net
 
     if (m.sender.replace(/@s\.whatsapp\.net$/, '') !== ownerNumber) {
         return conn.reply(m.chat, '⚠️ *No tienes permisos para usar este comando.*', m);
