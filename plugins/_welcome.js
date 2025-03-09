@@ -30,8 +30,8 @@ export async function before(m, { conn, participants, groupMetadata }) {
           `𝐀  ${groupMetadata.subject}\n` +
           `╰══•🔥ೋ•๑♡๑•ೋ🔥•══╯\n` +
           `\n` + // Espacio adicional aquí
-          `Esperamos que disfrutes tu estancia en el grupo.\n` +
-          `*_Recuerda leer la descripción_*\n` +
+          `Esperamos que disfrutes este grupo de mierda.\n` +
+          `*_Recuerda mamarla al adm y leer la descripción_*\n` +
           `🥀*ੈ✩‧₊˚༺☆༻*ੈ✩˚🍁`;
         
         try {
@@ -47,7 +47,7 @@ export async function before(m, { conn, participants, groupMetadata }) {
           `¡Adiós, @${userId.split`@`[0]}!\n` +
           `╰══•🔥ೋ•๑♡๑•ೋ🔥•══╯\n` +
           `\n` + // Espacio adicional aquí
-          `Gracias por haber estado con nosotros.\n` +
+          `basura inservible nunca vuelvas.\n` +
           `🥀*ੈ✩‧₊˚༺☆༻*ੈ✩˚🍁`;
         let img2;
         try {
@@ -64,7 +64,7 @@ export async function before(m, { conn, participants, groupMetadata }) {
            `¡Adiós, @${userId.split`@`[0]}!\n` +
            `╰══•🔥ೋ•๑♡๑•ೋ🔥•══╯\n` +
            `\n` + // Espacio adicional aquí
-           `Gracias por haber estado con nosotros.\n` +
+           `chupala al adm para volver aqui desgracia.\n` +
            `🥀*ੈ✩‧₊˚༺☆༻*ੈ✩˚🍁`;
         
         let img3;
