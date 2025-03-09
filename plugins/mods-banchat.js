@@ -1,7 +1,7 @@
 let handler = async (m) => {
 
 global.db.data.chats[m.chat].isBanned = true
-conn.reply(m.chat, `✅ *KanBot Ha Sido Desactivado En Este Chat*`, m, )
+conn.reply(m.chat, `✅ *JuancaBot Ha Sido Desactivado En Este Chat*`, m, )
 
 }
 handler.help = ['banchat']
