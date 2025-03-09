@@ -31,15 +31,15 @@ let handler = async (m, { conn, args, usedPrefix, command, DevMode }) => {
 
     if (Aku > Kamu) {
       conn.reply(m.chat, '`💣 Veamos qué números tienen!`\n\n'+ 
-        `➠ *KanBot* : ${Aku}\n➠ *${username}* : ${Kamu}\n\n> ${username}, *PERDISTE* ${formatNumber(count)} XP.`.trim(), m)
+        `➠ *Juanca* : ${Aku}\n➠ *${username}* : ${Kamu}\n\n> ${username}, *PERDISTE* ${formatNumber(count)} XP.`.trim(), m)
     } else if (Aku < Kamu) {
       user.exp += count * 2
       conn.reply(m.chat, '`💥 Veamos qué números tienen!`\n\n'+ 
-        `➠ *KanBot* : ${Aku}\n➠ *${username}* : ${Kamu}\n\n> ${username}, *GANASTE* ${formatNumber(count * 2)} XP.`.trim(), m)
+        `➠ *Juanca* : ${Aku}\n➠ *${username}* : ${Kamu}\n\n> ${username}, *GANASTE* ${formatNumber(count * 2)} XP.`.trim(), m)
     } else {
       user.exp += count * 1
       conn.reply(m.chat, '`💥 Veamos qué números tienen!`\n\n'+ 
-        `➠ *KanBot* : ${Aku}\n➠ *${username}* : ${Kamu}\n\n> ${username} obtienes ${formatNumber(count * 1)} XP.`.trim(), m)
+        `➠ *Juanca* : ${Aku}\n➠ *${username}* : ${Kamu}\n\n> ${username} obtienes ${formatNumber(count * 1)} XP.`.trim(), m)
     }
   } else {
     conn.reply(m.chat, `No tienes *${formatNumber(count)} XP* para apostar!`.trim(), m)
