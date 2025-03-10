@@ -1,7 +1,7 @@
 
 const handler = async (m, {conn, args, groupMetadata, participants, usedPrefix, command, isBotAdmin, isSuperAdmin}) => {
-  if (!args[0]) return m.reply(`*📍Ingrese Algun Prefijo De Un Pais, 𝙴𝙹𝙴𝙼𝙿𝙻𝙾: ${usedPrefix + command} 52*`);
-  if (isNaN(args[0])) return m.reply(`*📍Ingrese Algun Prefijo De Un Pais, 𝙴𝙹𝙴𝙼𝙿𝙻𝙾: ${usedPrefix + command} 52*`);
+  if (!args[0]) return m.reply(`*📍Ingrese Algun Prefijo De Un Pais, 𝙴𝙹𝙴𝙼𝙿𝙻𝙾: ${usedPrefix + command} 57*`);
+  if (isNaN(args[0])) return m.reply(`*📍Ingrese Algun Prefijo De Un Pais, 𝙴𝙹𝙴𝙼𝙿𝙻𝙾: ${usedPrefix + command} 57*`);
   const lol = args[0].replace(/[+]/g, '');
   const ps = participants.map((u) => u.id).filter((v) => v !== conn.user.jid && v.startsWith(lol || lol));
   const bot = global.db.data.settings[conn.user.jid] || {};
