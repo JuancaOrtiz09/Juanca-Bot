@@ -27,8 +27,8 @@ if (command == 'play') {
 *🚀 𝙎𝙀 𝙀𝙎𝙏𝘼 𝘿𝙀𝙎𝘼𝙍𝙂𝘼𝙉𝘿𝙊 𝙎𝙐 𝘼𝙐𝘿𝙄𝙊, 𝙀𝙎𝙋𝙀𝙍𝙀 𝙐𝙉 𝙈𝙊𝙈𝙀𝙉𝙏𝙊*
 
 ===========================
-✰ 𝙺𝚊𝚗𝙱𝚘𝚝 ✰
-> *Provided by Stiiven
+꧁⪻♥𝐉บสกcส𝑏𝗈ţ♥⪼꧂
+> *Provided by Juanca-Bot
 
 `.trim();
 
@@ -83,8 +83,8 @@ if (command == 'play2') {
 *🚀 𝙎𝙀 𝙀𝙎𝙏𝘼 𝘿𝙀𝙎𝘼𝙍𝙂𝘼𝙉𝘿𝙊 𝙎𝙐 𝙑𝙄𝘿𝙀𝙊, 𝙀𝙎𝙋𝙀𝙍𝙀 𝙐𝙉 𝙈𝙊𝙈𝙀𝙉𝙏𝙊*
 
 ===========================
-✰ 𝙺𝚊𝚗𝙱𝚘𝚝 ✰
-> *Provided by Stiiven
+꧁⪻♥𝐉บสกcส𝑏𝗈ţ♥⪼꧂
+> *Provided by Juanca-Bot
 `.trim();
 
     await conn.sendFile(m.chat, yt_play[0].thumbnail, 'error.jpg', texto1, m, null);
@@ -104,7 +104,7 @@ try {
 
         await conn.sendMessage(m.chat, {
             video: { url },
-            caption: `🎥 *${title}*\n😎 Su video by ✰ 𝙺𝚊𝚗𝙱𝚘𝚝 ✰`,
+            caption: `🎥 *${title}*\n😎 Su video by ꧁⪻♥𝐉บสกcส𝑏𝗈ţ♥⪼꧂`,
             mimetype: 'video/mp4',
         }, { quoted: m });
 
