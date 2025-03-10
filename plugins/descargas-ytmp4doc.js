@@ -22,7 +22,7 @@ try {
 
     let { title, url: download_url } = data.result;
 
-    let txt = '`🅓🅞🅒🅢 🅥➋ - 🅚🅐🅝🅑🅞🅣`\n\n';
+    let txt = '`🅓🅞🅒🅢 🅥➋ - 𒆜𝕁𝘂คกcค𝙗ŏ𝑡𒆜`\n\n';
     txt += `	🍁   *Título*: ${title}\n\n`;
     txt += `> ️ *Se está enviando su video, por favor espere*`;
 
@@ -30,7 +30,7 @@ try {
 
     await star.sendMessage(m.chat, {
         document: { url: download_url }, 
-        caption: `🌝 *Provided by KanBot* 🌚`,
+        caption: `🌝 *Provided by JuancaBot* 🌚`,
         mimetype: 'video/mp4',
         fileName: `${title}.mp4`
     }, { quoted: m });
