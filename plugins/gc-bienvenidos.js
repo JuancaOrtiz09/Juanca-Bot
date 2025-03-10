@@ -9,7 +9,7 @@ let handler = async (m, { conn }) => {
         },
         message: {
             videoMessage: { 
-                title: 'KanBot', 
+                title: 'Juanca-Bot', 
                 h: `Hmm`,
                 seconds: '99999', 
                 gifPlayback: true, 
@@ -20,7 +20,7 @@ let handler = async (m, { conn }) => {
     };
 
     let groupMetadata = await conn.groupMetadata(m.chat);
-    let str = `𝐁𝐢𝐞𝐧𝐯𝐞𝐧𝐢𝐝𝐨𝐬 𝐚𝐥 𝐠𝐫𝐮𝐩𝐨\n${groupMetadata.subject}\n𝐄𝐬𝐩𝐞𝐫𝐚𝐦𝐨𝐬 𝐪𝐮𝐞 𝐥𝐨 𝐩𝐚𝐬𝐞𝐬 𝐛𝐢𝐞𝐧 𝐲 𝐪𝐮𝐞 𝐩𝐨𝐫 𝐟𝐚𝐯𝐨𝐫 𝐥𝐞𝐚𝐬 𝐥𝐚𝐬 𝐫𝐞𝐠𝐥𝐚𝐬.\n> Disfruta del mejor Bot ✰ 𝙺𝚊𝚗𝙱𝚘𝚝 ✰`.trim();
+    let str = `𝐁𝐢𝐞𝐧𝐯𝐞𝐧𝐢𝐝𝐨𝐬 𝐚𝐥 𝐠𝐫𝐮𝐩𝐨\n${groupMetadata.subject}\n𝐄𝐬𝐩𝐞𝐫𝐚𝐦𝐨𝐬 𝐪𝐮𝐞 𝐥𝐨 𝐩𝐚𝐬𝐞𝐬 𝐛𝐢𝐞𝐧 𝐲 𝐪𝐮𝐞 𝐩𝐨𝐫 𝐟𝐚𝐯𝐨𝐫 𝐥𝐞𝐚𝐬 𝐥𝐚𝐬 𝐫𝐞𝐠𝐥𝐚𝐬.\n> Disfruta del mejor Bot ꧁⪻♥𝐉บสกcส𝑏𝗈ţ♥⪼꧂`.trim();
 
     if (m.isGroup) {
         let pp = 'https://telegra.ph/file/c62071be335ec9e97a0cf.mp4';
