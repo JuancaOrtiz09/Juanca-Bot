@@ -42,7 +42,7 @@ ${yt_play[0].url}
 📌 𝙲𝚊𝚗𝚊𝚕:
 ${yt_play[0].author.url}
 
-┗◛◛◛🅚🅐🅝🅑🅞🅣◛◛◛┛
+┗◛◛◛𒆜𝕁𝘂คกcค𝙗ŏ𝑡𒆜◛◛◛┛
 
 *𝙴𝚗𝚟𝚒𝚊𝚗𝚍𝚘 𝚜𝚞 Audio 𝙿𝚘𝚛 𝙵𝚊𝚟𝚘𝚛 𝙴𝚜𝚙𝚎𝚛𝚎*`.trim();
 
@@ -61,7 +61,7 @@ ${yt_play[0].author.url}
           document: { url: data.downloadUrl },
           mimetype: 'audio/mpeg',
           fileName: `${data.title}.mp3`,
-          caption: `🌚 *_Provided by KanBot_* 🌝`
+          caption: `🌚 *_Provided by JuancaBot_* 🌝`
         }, 
         { quoted: m }
       );
@@ -101,7 +101,7 @@ ${yt_play[0].url}
 📌 𝙲𝙰𝙽𝙰𝙻:
 ${yt_play[0].author.url}
 
-┗◛◛◛🅚🅐🅝🅑🅞🅣◛◛◛┛
+┗◛◛◛𒆜𝕁𝘂คกcค𝙗ŏ𝑡𒆜◛◛◛┛
 
 *𝙴𝚗𝚟𝚒𝚊𝚗𝚍𝚘 𝚜𝚞 Video 𝙿𝚘𝚛 𝙵𝚊𝚟𝚘𝚛 𝙴𝚜𝚙𝚎𝚛𝚎*`.trim();
 
@@ -125,7 +125,7 @@ ${yt_play[0].author.url}
         {
             document: { url: downloadUrl },
             fileName: fileName,
-            caption: `🌚 *_Provided by KanBot_* 🌝`,
+            caption: `🌚 *_Provided by JuancaBot_* 🌝`,
             mimetype: 'video/mp4'
         },
         { quoted: m }
