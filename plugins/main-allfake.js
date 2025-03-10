@@ -40,7 +40,7 @@ global.namechannel2 = '꧁⪻♥𝐉บสกcส𝑏𝗈ţ♥⪼꧂'
 global.namegrupo = '꧁⪻♥𝐉บสกcส𝑏𝗈ţ♥⪼꧂'
 global.namecomu = '꧁⪻♥𝐉บสกcส𝑏𝗈ţ♥⪼꧂'
 global.namecomu2 = '꧁⪻♥𝐉บสกcส𝑏𝗈ţ♥⪼꧂'
-global.colab1 = ''
+global.colab1 = 'Stiiven KanBot'
 global.colab2 = ''
 global.colab3 = ''
 
