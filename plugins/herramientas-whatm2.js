@@ -47,7 +47,7 @@ let handler = async (m, { conn }) => {
 📅 *Lanzamiento:* ${release_date || 'Desconocida'}
 🔗 *Enlace:* ${song_link || 'No disponible'}
      
- > Provided by *KanBot*    
+ > Provided by *JuancaBot*    
             
             `.trim()
 
