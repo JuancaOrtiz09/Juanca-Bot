@@ -39,7 +39,7 @@ let handler = async (m, { conn }) => {
 𝐆𝐄𝐍𝐄𝐑𝐎: ${genres ? genres.map(v => v.name).join(', ') : 'No encontrado'}
 𝐅𝐄𝐂𝐇𝐀 𝐃𝐄 𝐋𝐀𝐍𝐙𝐀𝐌𝐈𝐄𝐍𝐓𝐎: ${release_date || 'Desconocida'}
     
- > Provided by *KanBot*     
+ > Provided by *JuancaBot*     
       `.trim()
 
       m.reply(txt)
