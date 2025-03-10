@@ -34,7 +34,7 @@ let handler = async (m, { conn }) => {
         `➛ *ʀᴀᴍ ᴜꜱᴀᴅᴀ*: ${(memUsed.rss / 1024 / 1024).toFixed(2)} MB\n` +
         `➛ *ʀᴀᴍ ᴛᴏᴛᴀʟ*: ${(totalMem / 1024 / 1024 / 1024).toFixed(2)} GB\n` +
         `➛ *ʀᴀᴍ ʟɪʙʀᴇ*: ${(freeMem / 1024 / 1024 / 1024).toFixed(2)} GB\n\n`+
-        `*« ᴘʀᴏᴠɪᴅᴇᴅ ʙʏ ꜱᴛɪɪᴠᴇɴ »*` ;
+        `*« ᴘʀᴏᴠɪᴅᴇᴅ ʙʏ juanca »*` ;
 
     await conn.sendMessage(m.chat, { text: status }, { quoted: m });
 };
