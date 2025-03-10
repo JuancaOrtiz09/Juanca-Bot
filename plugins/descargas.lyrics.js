@@ -23,7 +23,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
         // Crear el mensaje con la letra
         let txt = ' *\`【 Lʏʀɪᴄꜱ Sᴇᴀʀᴄʜ 】\`*\n\n';
         txt += `> *❀ Canción:* _${text}_\n`;
-        txt += `> *_✯ Provided by KanBot_*\n`;
+        txt += `> *_✯ Provided by JuancaBot_*\n`;
         txt += `> *ꕤ Letra:* \n\n${lyrics}\n`.trim();
 
         // Enviar mensaje con la letra
