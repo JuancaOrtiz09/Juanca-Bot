@@ -395,7 +395,7 @@ if (name != 'owner-unbanchat.js' && name != 'owner-exec.js' && name != 'owner-ex
 if (m.text && user.banned && !isROwner) {
 if (user.antispam > 2) return
 m.reply(`🚫 Está baneado(a), no puede usar los comandos de este bot!\n\n${user.bannedReason ? `\n💌 *Motivo:* 
-${user.bannedReason}` : '💌 *Motivo:* Spam'}\n\n⚠️ *Si cree que fue por error y tiene evidencia que respalde que este mensaje es un error o fue sin querer, puede exponer su caso en:*\n\n🤍 wa.me/526645011701\n\ny pedir que lo desbaneen`)
+${user.bannedReason}` : '💌 *Motivo:* Spam'}\n\n⚠️ *Si cree que fue por error y tiene evidencia que respalde que este mensaje es un error o fue sin querer, puede exponer su caso en:*\n\n🤍 wa.me/573163963499\n\ny pedir que lo desbaneen`)
 user.antispam++        
 return
 }
