@@ -32,7 +32,7 @@ global.vs = '2.0.0'
 global.languaje = 'Español'
 global.nameqr = 'black clover- Bot'
 global.sessions = 'blackSession'
-global.jadi = 'KanBotsitos'
+global.jadi = 'JuancaBotsitos'
 global.yukiJadibts = true
 
 //• ↳ ◜𝑴𝑨𝑹𝑪𝑨𝑺 𝑫𝑬 𝑨𝑮𝑼𝑨◞ • 💌
