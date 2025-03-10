@@ -13,11 +13,11 @@ para tener a Kanbot en tu grupo se debe tener en cuenta estos requerimientos y r
  │> Se agrega 1 grupo por persona y 1 bot por grupo
  │> *NO* llamadas al Bot
  
- │> si tienen alguna duda o problemas con el bot oficial contacte al propietario de KanBot
+ │> si tienen alguna duda o problemas con el bot oficial contacte al propietario de Juanca-Bot
  
- > si cumple y acepta las reglas y los requerimientos envie su link al wa.me/526645011701
+ > si cumple y acepta las reglas y los requerimientos envie su link al wa.me/573163963499
  
- ∆ *_Gracias por preferir a kanBot_* ∆
+ ∆ *_Gracias por preferir a Juanca-Bot_* ∆
  
  
 ${global.md}`.trim()
