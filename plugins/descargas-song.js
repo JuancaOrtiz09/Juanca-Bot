@@ -43,7 +43,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
 
 🚀 *Enviando su audio espere por favor*
 
-🔥 *_Provided by KanBot_* 🔥`;
+🔥 *_Provided by JuancaBot_* 🔥`;
 
     // Enviar la imagen thumbnail junto con la información de la canción
     await conn.sendFile(m.chat, thumbnailUrl, 'thumbnail.jpg', info, m);
