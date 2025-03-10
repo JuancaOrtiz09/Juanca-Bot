@@ -35,7 +35,7 @@ const handler = async (m, { conn, args }) => {
     await m.react('📤'); // Reacción de envío
     await conn.sendMessage(m.chat, { 
       video: { url: video }, 
-      caption: '🎈 *Tu video de Facebook by KanBot.*', 
+      caption: '🎈 *Tu video de Facebook by Juanca-Bot.*', 
       fileName: 'facebook_video.mp4', 
       mimetype: 'video/mp4' 
     }, { quoted: m });
