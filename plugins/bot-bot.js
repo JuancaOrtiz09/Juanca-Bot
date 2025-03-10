@@ -15,8 +15,8 @@ handler.all = async function(m) {
         conn.reply(m.chat, `Camilo😌`, m, rcanal);
     }
 
-    // Respuesta a "puto, puta, Puto, Puta"
-    if (/^puto, puta, Puto, Puta$/i.test(m.text)) {
+    // Respuesta a "Puto"
+    if (/^Puto$/i.test(m.text)) {
         conn.reply(m.chat, `Puta Tu Madre La Que Me La Chupa🥵 `, m, rcanal);
     }
     
