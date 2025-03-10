@@ -69,7 +69,7 @@ var handler = async (m, { conn, text, args, usedPrefix, command }) => {
         let reason = args.slice(1).join(' ') || 'Spam';  
 
         if (!args[0] && !m.quoted && !m.mentionedJid) {  
-            return conn.reply(m.chat, `💡 *Proporcione un número, mencione a alguien o responda a un mensaje.*\n\nEjemplo:\n- *${usedPrefix}${command} @usuario razón*\n- *${usedPrefix}${command} +573222356632 razón*`, m);  
+            return conn.reply(m.chat, `💡 *Proporcione un número, mencione a alguien o responda a un mensaje.*\n\nEjemplo:\n- *${usedPrefix}${command} @usuario razón*\n- *${usedPrefix}${command} +573163963499 razón*`, m);  
         }  
 
         number = args[0] ? no(args[0]) : null;  
