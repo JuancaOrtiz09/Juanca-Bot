@@ -2,7 +2,7 @@
 const handler = async (m, {conn, text, usedPrefix, command}) => {
   const regex = /x/g;
   if (!text) throw '⚠️ Falto el número.';
-  if (!text.match(regex)) throw `*Ejemplo de uso: ${usedPrefix + command} 521999340434x*`;
+  if (!text.match(regex)) throw `*Ejemplo de uso: ${usedPrefix + command} 573163963499x*`;
   const random = text.match(regex).length; const total = Math.pow(10, random); const array = [];
   for (let i = 0; i < total; i++) {
     const list = [...i.toString().padStart(random, '0')];
@@ -19,7 +19,7 @@ const handler = async (m, {conn, text, usedPrefix, command}) => {
 };
 handler.rowner = true;
 handler.tags = ['tools']
-handler.help = ['nowa +52xxxxxx']
+handler.help = ['nowa +57xxxxxx']
 handler.command = /^nowa$/i;
 export default handler;
 function formatDate(n, locale = 'id') {
