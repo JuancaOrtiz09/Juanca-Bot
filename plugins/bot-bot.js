@@ -5,12 +5,12 @@ handler.all = async function(m) {
     const chat = global.db.data.chats[m.chat];
     if (chat.isBanned) return;
 
-    // Respuesta a "quien es el mejor bot"
+    // Respuesta a "Quien es el mejor bot"
     if (/^Quien es el mejor bot$/i.test(m.text)) {
         conn.reply(m.chat, `Juanca-Bot mi rey😎 `, m, rcanal);
     }
     
-    // Respuesta a "quien es tu creador"
+    // Respuesta a "Quien es tu creador"
     if (/^Quien es tu creador$/i.test(m.text)) {
         conn.reply(m.chat, `Camilo😌`, m, rcanal);
     }
