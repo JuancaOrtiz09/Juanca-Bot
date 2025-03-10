@@ -19,6 +19,11 @@ handler.all = async function(m) {
     if (/^Puto$/i.test(m.text)) {
         conn.reply(m.chat, `Puta Tu Madre La Que Me La Chupa🥵 `, m, rcanal);
     }
+
+    // Respuesta a "y esa mierda?"
+    ig (/^y esa mierda?$/i.test(m.text)) {
+        conn.reply(m.chat, `wtf y este ramdon de mierda? `, m, rcanal);
+    }
     
     return !0;
 };
