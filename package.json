@@ -1,5 +1,5 @@
 {
-"name": "black-clover-MD",
+"name": "Juanca-Ortiz-MD",
 "version": "4.1.0",
 "description": "Bot Multi Device ",
 "main": "blackclover/start.js",
@@ -20,11 +20,11 @@
 },
 "homepage": "https://github.com/thecarlos19/black-clover-MD",
 "author": {
-"name": "thecarlos19"
+"name": "JuancaOrtiz09"
 },
 "repository": {
 "type": "git",
-"url": "git+https://github.com/thecarlos19/black-clover-MD.git"
+"url": "git+https://github.com/JuancaOrtiz09/Juanca-Bot"
 },
 "bugs": {
 "url": "https://github.com/thecarlos19/black-clover-MD/issues"
