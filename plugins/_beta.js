@@ -30,13 +30,13 @@ let crm3 = "SBpbmZvLWRvbmFyLmpz"
 let crm4 = "IF9hdXRvcmVzcG9uZGVyLmpzIGluZm8tYm90Lmpz"
 let drm1 = ""
 let drm2 = ""
-let rtx = "*⚡ ↫ KanBot - SubBot  V2 ↬ ⚡*\n\n" +
+let rtx = "*⚡ ↫ Juanca-Bot - SubBot  V2 ↬ ⚡*\n\n" +
 "✰ Escanea este QR con otro celular o en la PC para convertirte en un *Sub-Bot* Temporal.\n\n" +
 "\`1\` » Pulsa los tres puntos en la esquina superior derecha\n" +
 "\`2\` » Selecciona *Dispositivos vinculados*\n" +
 "\`3\` » Escanea el código QR para iniciar sesión con el bot\n\n" +
 "⚠️ *Este código QR expira en 60 segundos!*";
-let rtx2 = "*⚡ ↫ KanBot - SubBot V2 ↬ ⚡*\n\n" +
+let rtx2 = "*⚡ ↫ Juanca-Bot - SubBot V2 ↬ ⚡*\n\n" +
 "✰ Usa este Código para convertirte en un *Sub-Bot* Temporal.\n\n" +
 "\`1\` » Pulsa los tres puntos en la esquina superior derecha\n" +
 "\`2\` » Selecciona *Dispositivos vinculados*\n" +
