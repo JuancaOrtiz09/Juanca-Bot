@@ -43,7 +43,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
         ['Imagen 4', dev, await res.getRandom(), [[]], [[]], [[]], [[]]]
     ];
 
-    await conn.sendCarousel(m.chat, `⚡ Resultado de ${text}`, '🔎 ✰ 𝙺𝚊𝚗𝙱𝚘𝚝 ✰ ', null, messages, m);
+    await conn.sendCarousel(m.chat, `⚡ Resultado de ${text}`, '🔎 Juanca ', null, messages, m);
     await m.react('✅');
 };
 
