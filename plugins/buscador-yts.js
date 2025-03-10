@@ -10,7 +10,7 @@ const handler = async (m, { text, conn, command, usedPrefix }) => {
 
 let messages = videos.map(video => [
     video.title,
-    `🎬 *Título:* ${video.title}\n⏱ *Duración:* ${video.timestamp}\n📅 *Subido:* ${video.ago}\n🎈 para descargar copee y pegue el comando:\n⟨∆⟩ boton 1 mp3\n⟨∆⟩ boton 2 mp4\n\n「✰」 provided by KanBot`,
+    `🎬 *Título:* ${video.title}\n⏱ *Duración:* ${video.timestamp}\n📅 *Subido:* ${video.ago}\n🎈 para descargar copee y pegue el comando:\n⟨∆⟩ boton 1 mp3\n⟨∆⟩ boton 2 mp4\n\n「✰」 provided by Juanca-Bot`,
     video.thumbnail,
     [[]], [ [ `/ytmp3 ${video.url}`], [ `/ytmp4 ${video.url}`] ]
 ]);
