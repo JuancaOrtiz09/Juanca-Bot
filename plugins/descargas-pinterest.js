@@ -45,7 +45,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
     [[item.pin]], [[]], [[]]
 ]);
 
-        await conn.sendCarousel(m.chat, `🔎 Resultados de *${text}*`, '⚡ 𝙺𝚊𝚗𝙱𝚘𝚝 ⚡', null, messages, m);
+        await conn.sendCarousel(m.chat, `🔎 Resultados de *${text}*`, '⚡ Juanca-Bot ⚡', null, messages, m);
         await m.react('✅');
 
     } catch (e) {
