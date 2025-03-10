@@ -36,7 +36,7 @@ const replyMessage = message.length === 0 ? '🚫 *No hay Sub-Bots activos :(*' 
 const totalUsers = users.length;
 
 const responseMessage = 
-`╭━〔 \`𝗦𝗨𝗕𝗦 - 𝗞𝗔𝗡𝗕𝗢𝗧  ̷V̷̷2̷\` 〕⬣
+`╭━〔 \`𝗦𝗨𝗕𝗦 - JUANCA-BOT  ̷V̷̷2̷\` 〕⬣
 ┃ ⚡ *Total de Sub-Bots:* ${totalUsers || '0'}
 ╰━━━━━━━━━━━━━━━━⬣
 
