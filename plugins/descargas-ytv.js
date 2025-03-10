@@ -30,7 +30,7 @@ try {
             video: { url: videoUrl },
             fileName: `${videoTitle}.mp4`,
             mimetype: 'video/mp4',
-            caption: `😎 Su video by *_KanBot_*:\n\n*🎬 Título:* ${videoTitle}`,
+            caption: `😎 Su video by *_JuancaBot_*:\n\n*🎬 Título:* ${videoTitle}`,
         }, { quoted: m });
 
         return await m.react('✅'); // Confirmar éxito
