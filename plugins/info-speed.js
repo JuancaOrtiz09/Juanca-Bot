@@ -34,7 +34,7 @@ let texto = `⚡ *${global.botname}* ⚡
 🔰 *Servidor:*
 ➤ *Ram ⪼* ${format(totalmem() - freemem())} / ${format(totalmem())}
 
-👑 *Provided by Stiiven*`.trim()
+👑 *Provided by Juanca*`.trim()
 
 m.react('✴️')
 
