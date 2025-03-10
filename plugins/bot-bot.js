@@ -7,7 +7,7 @@ handler.all = async function(m) {
 
     // Respuesta a "quien es el mejor bot"
     if (/^Quien es el mejor bot$/i.test(m.text)) {
-        conn.reply(m.chat, `Juanca mi rey😎 `, m, rcanal);
+        conn.reply(m.chat, `Juanca-Bot mi rey😎 `, m, rcanal);
     }
     
     // Respuesta a "quien es tu creador"
