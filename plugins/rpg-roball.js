@@ -1,4 +1,4 @@
-const ownerBot = global.owner[573163963499] + '@s.whatsapp.net';
+const ownerBot = global.owner[0][0] + '@s.whatsapp.net';
 
 const handler = async (m, {conn, usedPrefix, command}) => {
   const isOwner = m.sender === ownerBot;
