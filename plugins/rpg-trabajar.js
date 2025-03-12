@@ -8,7 +8,7 @@ const tiempo2 = segundosAHMS(Math.ceil((cooldowns[m.sender] + tiempo * 1000 - Da
 conn.reply(m.chat, ` Espera ⏱️ *${tiempo2}* para volver a Trabajar.`, m, )
 return
 }
-let rsl = Math.floor(Math.random() * 5000)
+let rsl = Math.floor(Math.random() * 5000000000000000)
 cooldowns[m.sender] = Date.now()
 await conn.reply(m.chat, `⚡ ${pickRandom(trabajo)} *${toNum(rsl)}* ( *${rsl}* ) XP 🍭.`, m, )
 user.exp += rsl
