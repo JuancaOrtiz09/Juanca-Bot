@@ -4,7 +4,7 @@ let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status
 
 let yaemori = ` Hola 👋
 
-para tener a Kanbot en tu grupo se debe tener en cuenta estos requerimientos y reglas:
+para tener a Juanca-Bot en tu grupo se debe tener en cuenta estos requerimientos y reglas:
 
  │> El grupo debe tener como minimo 20 participantes
  │> Si eliminan el bot *NO* se volvera a agregar
