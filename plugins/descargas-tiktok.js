@@ -31,7 +31,7 @@ const handler = async (m, { conn, args, usedPrefix, command }) => {
     }
 
     const { title, duration, region, author, data } = result;
-    const caption = `*📌 Título:* ${title || 'No disponible'}\n*⏳ Duración:* ${duration}\n*🌍 Región:* ${region}\n*👤 Autor:* ${author.nickname}\n\n📥 *Descargado con éxito by _KanBot_.*`;
+    const caption = `*📌 Título:* ${title || 'No disponible'}\n*⏳ Duración:* ${duration}\n*🌍 Región:* ${region}\n*👤 Autor:* ${author.nickname}\n\n📥 *Descargado con éxito by _Juanca-Bot_.*`;
 
     if (data[0].type === 'photo') {
       for (const photo of data) {
