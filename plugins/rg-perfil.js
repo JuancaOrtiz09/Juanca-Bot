@@ -62,7 +62,7 @@ ${marriedText}
 🍁 *Experiencia:* ${exp || 0}
 💡 *Rango:* ${role || 'Sin rango'}
 
-*_Provided by KanBot_*
+*_Provided by Juanca-Bot_*
 `.trim();
 
     try {
