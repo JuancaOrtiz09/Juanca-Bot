@@ -5,8 +5,8 @@ export async function before(m, { conn, participants, groupMetadata }) {
 
     let userId = m.messageStubParameters[0];
 
-    const welcomeImage = 'https://files.catbox.moe/mz39y2.jpg'; // Imagen de bienvenida
-    const goodbyeImage = 'https://files.catbox.moe/mz39y2.jpg'; // Imagen de despedida
+    const welcomeImage = 'https://i.postimg.cc/Pxf55d0w/Menu3.jpg'; // Imagen de bienvenida
+    const goodbyeImage = 'https://i.postimg.cc/Pxf55d0w/Menu3.jpg'; // Imagen de despedida
 
     let pp;
     try {
