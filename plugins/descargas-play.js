@@ -4,17 +4,22 @@ import yts from 'yt-search'
 import ytdl from 'ytdl-core'
 import axios from 'axios'
 import fs from 'fs'
-import { execSync } from 'child_process'
+import { exec } from 'child_process'
+//import { execSync } from 'child_process'
 const LimitAud = 725 * 1024 * 1024; //700MB
 const LimitVid = 425 * 1024 * 1024; //425MB
 const handler = async (m, {conn, command, args, text, usedPrefix}) => {
 
-if (command == 'play') {
-  if (!text) return conn.reply(m.chat, `*𝙸𝚗𝚐𝚛𝚎𝚜𝚊 𝚎𝚕 𝚗𝚘𝚖𝚋𝚛𝚎 𝚍𝚎 𝚕𝚘 𝚚𝚞𝚎 𝚚𝚞𝚒𝚎𝚛𝚎𝚜 𝚋𝚞𝚜𝚌𝚊𝚛*`, m, );
-  await m.react('🕓');
 
-  const yt_play = await search(args.join(' '));
-  const texto1 = `
+if (command === 'play') {
+        if (!text) return conn.reply(m.chat, `*𝙸𝚗𝚐𝚛𝚎𝚜𝚊 𝚎𝚕 𝚗𝚘𝚖𝚋𝚛𝚎 𝚍𝚎 𝚕𝚘 𝚚𝚞𝚎 𝚚𝚞𝚒𝚎𝚛𝚎𝚜 𝚋𝚞𝚜𝚌𝚊𝚛*`, m);
+
+        await m.react('🕓');
+
+        // Buscar en YouTube
+        const yt_play = await search(args.join(' '));
+
+        const texto1 = `
 𝚈𝚘𝚞𝚝𝚞𝚋𝚎 𝙳𝚎𝚜𝚌𝚊𝚛𝚐𝚊𝚜
 ===========================
 
@@ -24,45 +29,63 @@ if (command == 'play') {
 
 > *𝙳𝚞𝚛𝚊𝚌𝚒𝚘𝚗* :  ${secondString(yt_play[0].duration.seconds)}
 
-*🚀 𝙎𝙀 𝙀𝙎𝙏𝘼 𝘿𝙀𝙎𝘼𝙍𝙂𝘼𝙉𝘿𝙊 𝙎𝙐 𝘼𝙐𝘿𝙄𝙊, 𝙀𝙎𝙋𝙀𝙍𝙀 𝙐𝙉 𝙈𝙊𝙈𝙀𝙉𝙏𝙊*
+*🚀 𝙎𝙀 𝙀𝙎𝙏𝘼 𝘿𝙀𝙎𝘼𝙍𝙂𝙰𝙉𝘿𝙊 𝙎𝙐 𝙑𝙄𝘿𝙀𝙊, 𝙀𝙎𝙋𝙀𝙍𝙀 𝙐𝙉 𝙈𝙊𝙈𝙀𝙉𝙏𝙊*
 
 ===========================
-꧁⪻♥𝐉บสกcส𝑏𝗈ţ♥⪼꧂
-> *Provided by Juanca-Bot
-
+✰ 𝙺𝚊𝚗𝙱𝚘𝚝 ✰
+> *Provided by Stiiven*
 `.trim();
 
-  await conn.sendFile(m.chat, yt_play[0].thumbnail, 'error.jpg', texto1, m, null);
+        await conn.sendFile(m.chat, yt_play[0].thumbnail, 'error.jpg', texto1, m, null);
 
-    try {
-        await m.react('🕓'); // Reintento con la segunda API
+        try {
+            await m.react('🕓'); // Reaccionar mientras procesa
 
-        // Segunda API
-        let fallbackApiUrl = `https://api.agungny.my.id/api/youtube-audio?url=${encodeURIComponent(yt_play[0].url)}`;
-        let fallbackApiResponse = await fetch(fallbackApiUrl);
-        let fallbackResponseData = await fallbackApiResponse.json();
+            // URL de la API para obtener el audio
+            const apiUrl = `https://api.siputzx.my.id/api/d/ytmp3?url=${encodeURIComponent(yt_play[0].url)}`;
+            let apiResponse = await fetch(apiUrl);
+            let response = await apiResponse.json();
 
-        if (!fallbackResponseData.status || !fallbackResponseData.result || !fallbackResponseData.result.downloadUrl) {
-            throw new Error('Fallo en la segunda API');
+            // Verificar si la API devolvió un resultado válido
+            if (response.status === true && response.data && response.data.dl) {
+                const { dl, title } = response.data;
+
+                let originalPath = './temp_audio.mp3';
+                let convertedPath = './converted_audio.mp3';
+
+                // Descargar el audio
+                const audioResponse = await axios.get(dl, { responseType: 'arraybuffer' });
+                fs.writeFileSync(originalPath, audioResponse.data);
+
+                // Convertir el audio a un formato compatible con WhatsApp (64kbps, 44100Hz)
+                await new Promise((resolve, reject) => {
+                    exec(`ffmpeg -i ${originalPath} -ar 44100 -ab 64k -y ${convertedPath}`, (err) => {
+                        if (err) reject(err);
+                        else resolve();
+                    });
+                });
+
+                // Enviar el audio convertido
+                await conn.sendMessage(m.chat, {
+                    audio: fs.readFileSync(convertedPath),
+                    mimetype: 'audio/mp4',
+                    ptt: false, // Enviar como audio normal
+                    fileName: `${title}.mp3`,
+                }, { quoted: m });
+
+                // Eliminar archivos temporales
+                fs.unlinkSync(originalPath);
+                fs.unlinkSync(convertedPath);
+
+                return await m.react('✅'); // Reacción de éxito
+            }
+
+            throw new Error("API falló o no retornó datos válidos");
+        } catch (error) {
+            console.warn("Error en la API:", error.message);
+            await m.reply("❌ Error al procesar la solicitud. Inténtalo con /ply");
         }
-
-        // Enviar el audio al chat
-        await conn.sendMessage(m.chat, {
-            audio: { url: fallbackResponseData.result.downloadUrl },
-            mimetype: 'audio/mpeg',
-            fileName: `${fallbackResponseData.result.title}.mp3`,
-            ptt: false,
-        }, { quoted: m });
-
-        await m.react('✅'); // Éxito
-    } catch (error2) {
-        console.error('Error con la segunda API:', error2.message);
-        await m.react('❌'); // Error final
-        await conn.sendMessage(m.chat, 'Ocurrió un error al procesar el enlace con ambas APIs.', { quoted: m });
     }
-
-
-}
 
 if (command == 'play2') {
     if (!text) return conn.reply(m.chat, `*𝙸𝚗𝚐𝚛𝚎𝚜𝚊 𝚎𝚕 𝚗𝚘𝚖𝚋𝚛𝚎 𝚍𝚎 𝚕𝚘 𝚚𝚞𝚎 𝚚𝚞𝚒𝚎𝚛𝚎𝚜 𝚋𝚞𝚜𝚌𝚊𝚛*`, m, );
@@ -80,11 +103,11 @@ if (command == 'play2') {
 
 > *𝙳𝚞𝚛𝚊𝚌𝚒𝚘𝚗* :  ${secondString(yt_play[0].duration.seconds)}
 
-*🚀 𝙎𝙀 𝙀𝙎𝙏𝘼 𝘿𝙀𝙎𝘼𝙍𝙂𝘼𝙉𝘿𝙊 𝙎𝙐 𝙑𝙄𝘿𝙀𝙊, 𝙀𝙎𝙋𝙀𝙍𝙀 𝙐𝙉 𝙈𝙊𝙈𝙀𝙉𝙏𝙊*
+S𝙀 𝙀𝙎𝙏𝘼 𝘿𝙀𝙎𝘼𝙍𝙂𝘼𝙉𝘿𝙊 𝙎𝙐 𝙑𝙄𝘿𝙀𝙊, 𝙀𝙎𝙋𝙀𝙍𝙀 𝙐𝙉 𝙈𝙊𝙈𝙀𝙉𝙏𝙊*
 
 ===========================
-꧁⪻♥𝐉บสกcส𝑏𝗈ţ♥⪼꧂
-> *Provided by Juanca-Bot
+✰ 𝙺𝚊𝚗𝙱𝚘𝚝 ✰
+> *Provided by Stiiven
 `.trim();
 
     await conn.sendFile(m.chat, yt_play[0].thumbnail, 'error.jpg', texto1, m, null);
@@ -104,7 +127,7 @@ try {
 
         await conn.sendMessage(m.chat, {
             video: { url },
-            caption: `🎥 *${title}*\n😎 Su video by ꧁⪻♥𝐉บสกcส𝑏𝗈ţ♥⪼꧂`,
+            caption: `🎥 *${title}*\n😎 Su video by ✰ 𝙺𝚊𝚗𝙱𝚘𝚝 ✰`,
             mimetype: 'video/mp4',
         }, { quoted: m });
 
@@ -219,3 +242,44 @@ if (data.status === 'ok') {
     throw new Error("No se pudo obtener la descarga desde 9Convert");
   }
 }
+
+/*
+import yts from 'yt-search';
+import fetch from 'node-fetch';
+let limit = 320;
+let confirmation = {};
+
+let handler = async (m, { conn, command, text, args, usedPrefix }) => {
+    if (!text) throw `✳️ Ejemplo: *${usedPrefix + command}* Lil Peep hate my life`;
+
+    let res = await yts(text);
+    let vid = res.videos[0];
+    if (!vid) throw `✳️ Vídeo/Audio no encontrado`;
+
+    let { title, thumbnail, videoId, timestamp, views, ago, url } = vid;
+
+    m.react('🎧');
+
+    let playMessage = `
+≡ *YOUTUBE MUSIC*
+┌──────────────
+▢ 📌 *Título:* ${title}
+▢ 📆 *Subido hace:* ${ago}
+▢ ⌚ *Duración:* ${timestamp}
+▢ 👀 *Vistas:* ${views.toLocaleString()}
+└──────────────`;
+
+    conn.sendButton(m.chat, playMessage, null, thumbnail, [
+        ['🎶 MP3', `${usedPrefix}yta ${url}`],
+        ['🎥 MP4', `${usedPrefix}ytv ${url}`]
+    ], m);
+};
+
+handler.help = ['play'];
+handler.tags = ['descargas'];
+handler.command = ['play', 'play2'];
+handler.disabled = false;
+handler.group = true;
+
+export default handler;
+*/
