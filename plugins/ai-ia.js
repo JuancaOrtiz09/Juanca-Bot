@@ -12,7 +12,7 @@ let handler = async (m, { conn, usedPrefix, command, text }) => {
         const data = await response.json();
 
         if (data.status && data.answer) {
-            await conn.reply(m.chat, `*Hola!👋 soy KanBot Provided By Stiiven*:\n${data.answer}`, m);
+            await conn.reply(m.chat, `*Hola!👋 soy Juanca-Boy Provided By Juanca Ortiz*:\n${data.answer}`, m);
         } else {
             await m.react('❌');
             await conn.reply(m.chat, '❌ Error: No se obtuvo una respuesta válida.', m);
