@@ -11,8 +11,8 @@ const LimitVid = 425 * 1024 * 1024; //425MB
 const handler = async (m, {conn, command, args, text, usedPrefix}) => {
 
 
-if (command === 'play') {
-        if (!text) return conn.reply(m.chat, `*𝙸𝚗𝚐𝚛𝚎𝚜𝚊 𝚎𝚕 𝚗𝚘𝚖𝚋𝚛𝚎 𝚍𝚎 𝚕𝚘 𝚚𝚞𝚎 𝚚𝚞𝚒𝚎𝚛𝚎𝚜 𝚋𝚞𝚜𝚌𝚊𝚛*`, m);
+if (command === 'playp') {
+        if (!text) return conn.reply(m.chat, `*𝙸𝚗𝚐𝚛𝚎𝚜𝚊 𝚎𝚕 𝚗𝚘𝚖𝚋𝚛𝚎 𝚍𝚎 𝚕𝚘 𝚚𝚞𝚎 𝚚𝚞𝚒𝚎𝚛𝚎𝚜 𝚋𝚞𝚜𝚌𝚊𝚛*`, m, rcanal);
 
         await m.react('🕓');
 
@@ -29,70 +29,193 @@ if (command === 'play') {
 
 > *𝙳𝚞𝚛𝚊𝚌𝚒𝚘𝚗* :  ${secondString(yt_play[0].duration.seconds)}
 
-*🚀 𝙎𝙀 𝙀𝙎𝙏𝘼 𝘿𝙀𝙎𝘼𝙍𝙂𝙰𝙉𝘿𝙊 𝙎𝙐 𝙑𝙄𝘿𝙀𝙊, 𝙀𝙎𝙋𝙀𝙍𝙀 𝙐𝙉 𝙈𝙊𝙈𝙀𝙉𝙏𝙊*
+*🚀 𝙎𝙀 𝙀𝙎𝙏𝘼 𝘿𝙀𝙎𝘼𝙍𝙂𝘼𝙉𝘿𝙊 𝙎𝙐 𝘼𝙐𝘿𝙄𝙊, 𝙀𝙎𝙋𝙀𝙍𝙀 𝙐𝙉 𝙈𝙊𝙈𝙀𝙉𝙏𝙊*
 
 ===========================
-✰ 𝓳𝓾𝓪𝓷𝓬𝓪-𝓑𝓸𝓽 ✰
-> *Provided by 𝓙𝓾𝓪𝓷𝓬𝓪*
+✰ Juanca-Bot ✰
+> *Provided by JuancaOrtiz*
 `.trim();
 
         await conn.sendFile(m.chat, yt_play[0].thumbnail, 'error.jpg', texto1, m, null);
+try {
+    await m.react('🕓'); // Reacciona mientras procesa
 
-        try {
-            await m.react('🕓'); // Reaccionar mientras procesa
+    const url = yt_play[0].url;
+    const apiUrl = `https://delirius-apiofc.vercel.app/download/ytmp3?url=${encodeURIComponent(url)}`;
 
-            // URL de la API para obtener el audio
-            const apiUrl = `https://api.siputzx.my.id/api/d/ytmp3?url=${encodeURIComponent(yt_play[0].url)}`;
-            let apiResponse = await fetch(apiUrl);
-            let response = await apiResponse.json();
+    const apiResponse = await fetch(apiUrl);
+    const response = await apiResponse.json();
 
-            // Verificar si la API devolvió un resultado válido
-            if (response.status === true && response.data && response.data.dl) {
-                const { dl, title } = response.data;
+    if (response.status && response.data && response.data.download && response.data.download.url) {
+        const { title, download } = response.data;
 
-                let originalPath = './temp_audio.mp3';
-                let convertedPath = './converted_audio.mp3';
+        await conn.sendMessage(m.chat, {
+            audio: { url: download.url },
+            mimetype: 'audio/mp4',
+            fileName: `${title}.mp3`,
+            ptt: false
+        }, { quoted: m });
 
-                // Descargar el audio
-                const audioResponse = await axios.get(dl, { responseType: 'arraybuffer' });
-                fs.writeFileSync(originalPath, audioResponse.data);
+        await m.react('✅'); // Éxito
+    } else {
+        throw new Error('No se pudo obtener el enlace desde la API de Delirius.');
+    }
 
-                // Convertir el audio a un formato compatible con WhatsApp (64kbps, 44100Hz)
-                await new Promise((resolve, reject) => {
-                    exec(`ffmpeg -i ${originalPath} -ar 44100 -ab 64k -y ${convertedPath}`, (err) => {
-                        if (err) reject(err);
-                        else resolve();
-                    });
-                });
+} catch (err) {
+    
+   try {
+    await m.react('🕓'); // Indicador de procesamiento
 
-                // Enviar el audio convertido
-                await conn.sendMessage(m.chat, {
-                    audio: fs.readFileSync(convertedPath),
-                    mimetype: 'audio/mp4',
-                    ptt: false, // Enviar como audio normal
-                    fileName: `${title}.mp3`,
-                }, { quoted: m });
+    const url = yt_play[0].url;
+    const format = 'mp3';
+    const apiUrl = `https://itzpire.com/download/youtube/v2?url=${encodeURIComponent(url)}&format=${format}`;
 
-                // Eliminar archivos temporales
-                fs.unlinkSync(originalPath);
-                fs.unlinkSync(convertedPath);
+    const apiResponse = await fetch(apiUrl);
+    const response = await apiResponse.json();
 
-                return await m.react('✅'); // Reacción de éxito
-            }
+    if (response.status === 'success' && response.data && response.data.downloadUrl) {
+        const { title, downloadUrl } = response.data;
 
-            throw new Error("API falló o no retornó datos válidos");
-        } catch (error) {
-            console.warn("Error en la API:", error.message);
-            await m.reply("❌ Error al procesar la solicitud. Inténtalo con /ply");
+        await conn.sendMessage(m.chat, {
+            audio: { url: downloadUrl },
+            mimetype: 'audio/mp4', // mp3 se puede enviar con este tipo
+            fileName: `${title}.mp3`,
+            ptt: false
+        }, { quoted: m });
+
+        await m.react('✅'); // Éxito
+    } else {
+        throw new Error('No se pudo obtener el enlace desde la API de ITzpire.');
+    }
+
+} catch (err) {
+
+try {
+    await m.react('🕓'); // Reacciona mientras procesa
+
+    const url = yt_play[0].url;
+    const apiUrl = `https://bk9.fun/download/ytmp3?url=${encodeURIComponent(url)}&type=mp3`;
+
+    const apiResponse = await fetch(apiUrl);
+    const response = await apiResponse.json();
+
+    if (response.status && response.BK9?.downloadUrl) {
+        const { title, downloadUrl } = response;
+        await conn.sendMessage(m.chat, {
+            audio: { url: downloadUrl },
+            mimetype: 'audio/mp4',
+            fileName: `${title}.mp3`,
+            ptt: false
+        }, { quoted: m });
+
+        await m.react('✅'); // Éxito
+    } else {
+        throw new Error('No se pudo obtener el enlace desde la primera API.');
+    }
+
+} catch (e) {
+    try {
+    await m.react('🕓'); // Reacciona mientras procesa
+
+    const url = yt_play[0].url; // Asegúrate de que yt_play[0].url esté definido
+    const apiKey = 'i1fER4';
+    const apiUrl = `https://alyachan.dev/api/yta?url=${encodeURIComponent(url)}&apikey=${apiKey}`;
+
+    const apiResponse = await fetch(apiUrl);
+    const response = await apiResponse.json();
+
+    if (response.status && response.data && response.data.url) {
+        const { title, data } = response;
+
+        await conn.sendMessage(m.chat, {
+            audio: { url: data.url },
+            mimetype: 'audio/mp4',
+            fileName: `${title}.mp3`,
+            ptt: false
+        }, { quoted: m });
+
+        await m.react('✅'); // Éxito
+    } else {
+        throw new Error('No se pudo obtener el enlace desde la API de AlyaChan.');
+    }
+
+} catch (err) {
+
+    try {
+    await m.react('🕓'); // Reacciona mientras procesa
+
+    const url = yt_play[0].url;
+    const apiUrl = `https://api.sylphy.xyz/download/ytmp3?url=${encodeURIComponent(url)}`;
+
+    const apiResponse = await fetch(apiUrl);
+    const response = await apiResponse.json();
+
+    if (response.status && response.res && response.res.url) {
+        const { title, url: audioUrl } = response.res;
+
+        await conn.sendMessage(m.chat, {
+            audio: { url: audioUrl },
+            mimetype: 'audio/mp4',
+            fileName: `${title}.mp3`,
+            ptt: false
+        }, { quoted: m });
+
+        await m.react('✅'); // Éxito
+    } else {
+        throw new Error('No se pudo obtener el enlace desde la API de Sylphy.');
+    }
+
+} catch (err) {
+
+    try {
+        await m.react('🕓'); // Reintenta con la segunda API
+
+        const url = yt_play[0].url;
+        const apiUrl = `https://apidl.asepharyana.cloud/api/downloader/ytmp3?url=${encodeURIComponent(url)}`;
+
+        const apiResponse = await fetch(apiUrl);
+        const response = await apiResponse.json();
+
+        if (response.url) {
+            const { title, url: audioUrl } = response;
+            await conn.sendMessage(m.chat, {
+                audio: { url: audioUrl },
+                mimetype: 'audio/mp4',
+                fileName: `${title}.mp3`,
+                ptt: false
+            }, { quoted: m });
+
+            await m.react('✅'); // Éxito
+        } else {
+            throw new Error('No se pudo obtener el enlace desde la segunda API.');
         }
+
+    } catch (err) {
+        await m.react('❌');
+        console.error('Error al procesar el audio:', err);
+        m.reply('No se pudo obtener el audio intente con `playp2`.');
+    }
+}
+}
+}
+}
+}
+//
     }
 
 if (command == 'play2') {
-    if (!text) return conn.reply(m.chat, `*𝙸𝚗𝚐𝚛𝚎𝚜𝚊 𝚎𝚕 𝚗𝚘𝚖𝚋𝚛𝚎 𝚍𝚎 𝚕𝚘 𝚚𝚞𝚎 𝚚𝚞𝚒𝚎𝚛𝚎𝚜 𝚋𝚞𝚜𝚌𝚊𝚛*`, m, );
+    if (!text) return conn.reply(m.chat, `*𝙸𝚗𝚐𝚛𝚎𝚜𝚊 𝚎𝚕 𝚗𝚘𝚖𝚋𝚛𝚎 𝚍𝚎 𝚕𝚘 𝚚𝚞𝚎 𝚚𝚞𝚒𝚎𝚛𝚎𝚜 𝚋𝚞𝚜𝚌𝚊𝚛*`, m, rcanal);
     
     await m.react('🕓'); 
 
     const yt_play = await search(args.join(' '));
+    
+    // Validación de duración
+    const duracionSegundos = yt_play[0].duration.seconds || 0;
+    if (duracionSegundos > 3600) {
+        return conn.reply(m.chat, `❌ *El video supera la duración máxima permitida de 1 hora.*\n\n📌 *Duración del video:* ${secondString(duracionSegundos)} Esto no es Amazon Prime Video`, m);
+    }
+
     const texto1 = `
 𝚈𝚘𝚞𝚝𝚞𝚋𝚎 𝙳𝚎𝚜𝚌𝚊𝚛𝚐𝚊𝚜
 ===========================
@@ -101,53 +224,206 @@ if (command == 'play2') {
 
 > *𝙲𝚛𝚎𝚊𝚍𝚘* :  ${yt_play[0].ago}
 
-> *𝙳𝚞𝚛𝚊𝚌𝚒𝚘𝚗* :  ${secondString(yt_play[0].duration.seconds)}
+> *𝙳𝚞𝚛𝚊𝚌𝚒𝚘𝚗* :  ${secondString(duracionSegundos)}
 
-S𝙀 𝙀𝙎𝙏𝘼 𝘿𝙀𝙎𝘼𝙍𝙂𝘼𝙉𝘿𝙊 𝙎𝙐 𝙑𝙄𝘿𝙀𝙊, 𝙀𝙎𝙋𝙀𝙍𝙀 𝙐𝙉 𝙈𝙊𝙈𝙀𝙉𝙏𝙊*
+*🚀 𝙎𝙀 𝙀𝙎𝙏𝘼 𝘿𝙀𝙎𝘼𝙍𝙂𝘼𝙉𝘿𝙊 𝙎𝙐 𝙑𝙄𝘿𝙀𝙊, 𝙀𝙎𝙋𝙀𝙍𝙀 𝙐𝙉 𝙈𝙊𝙈𝙀𝙉𝙏𝙊*
 
 ===========================
-✰ 𝓙𝓾𝓪𝓷𝓬𝓪-𝓑𝓸𝓽 ✰
-> *Provided by 𝓙𝓾𝓪𝓷𝓬𝓪
+✰ Juanca-Bot ✰
+> *Provided by JuancaOrtiz
 `.trim();
 
     await conn.sendFile(m.chat, yt_play[0].thumbnail, 'error.jpg', texto1, m, null);
 
-
 try {
-    await m.react('🕓'); // Reacciona con un ícono de reloj mientras procesa
+    await m.react('🕓');
+    const url = yt_play[0].url;
 
-    // Nueva API
-    const apiUrl = `https://api.agungny.my.id/api/youtube-videov2?url=${encodeURIComponent(yt_play[0].url)}`;
-    let apiResponse = await fetch(apiUrl);
-    let response = await apiResponse.json();
+    const api2 = await fetch(`https://delirius-apiofc.vercel.app/download/ytmp4?url=${encodeURIComponent(url)}`);
+    const res2 = await api2.json();
 
-    // Verificar si la API devolvió un resultado válido
-    if (response.status === "true" && response.result && response.result.url) {
-        const { url, title } = response.result;
+    if (res2.status && res2.data?.download?.url) {
+        const { title, duration, views, author } = res2.data;
+        const downloadUrl = res2.data.download.url;
 
         await conn.sendMessage(m.chat, {
-            video: { url },
-            caption: `🎥 *${title}*\n😎 Su video by ✰ 𝓙𝓾𝓪𝓷𝓬𝓪 𝓑𝓸𝓽 ✰`,
-            mimetype: 'video/mp4',
+            video: { url: downloadUrl },
+            caption: `*${title}*\nDuración: ${Math.floor(duration / 60)}:${(duration % 60).toString().padStart(2, '0')} minutos\nVistas: ${views}\nCanal: ${author}`
         }, { quoted: m });
 
-        return await m.react('✅'); // Reaccionar con éxito
+        await m.react('✅');
+        return; // ✅ Éxito, no continuar con otras APIs
     }
+} catch (e) {
+    console.warn('Error en API 2 (Delirius):', e);
+}
+try {
+    await m.react('🕓');
+    const url = yt_play[0].url;
 
-    throw new Error("API falló o no retornó datos válidos");
-} catch (error) {
-    console.warn("Error en la API:", error.message);
+    const api5 = await fetch(`https://www.dark-yasiya-api.site/download/ytmp4?url=${encodeURIComponent(url)}&quality=360`);
+    const res5 = await api5.json();
+
+    if (res5?.status && res5.result?.download?.url) {
+        const video = res5.result.data;
+        const download = res5.result.download;
+
+        await conn.sendMessage(m.chat, {
+            video: { url: download.url },
+            caption: `🎬 *${video.title}*\n👤 Autor: ${video.author.name}\n🕒 Duración: ${video.duration.timestamp}\n👁️ Vistas: ${video.views}\n📥 Calidad: ${download.quality}p`
+        }, { quoted: m });
+
+        await m.react('✅');
+        return; // ✅ Éxito, no continuar con otras APIs
+    }
+} catch (e) {
+    console.warn('Error en API 5 (DarkYasiya):', e);
+}
+try {
+    await m.react('🕓');
+    const url = yt_play[0].url;
+
+    const apiAlya = await fetch(`https://api.alyachan.dev/api/ytv?url=${encodeURIComponent(url)}&apikey=i1fER4`);
+    const resAlya = await apiAlya.json();
+
+    if (resAlya.status && resAlya.data?.url) {
+        const {
+            title,
+            duration,
+            channel,
+            views,
+            publish,
+            thumbnail,
+            data
+        } = resAlya;
+
+        await conn.sendMessage(m.chat, {
+            video: { url: data.url },
+            caption: `🎬 *${title}*\n🕒 Duración: ${duration}\n👤 Canal: ${channel}\n👁️ Vistas: ${views}\n📅 Publicado: ${publish}\n📥 Calidad: ${data.quality} - ${data.size}`
+        }, { quoted: m });
+
+        await m.react('✅');
+        return; // ✅ Éxito, no continuar con otras APIs
+    }
+} catch (e) {
+    console.warn('Error en API (AlyaChan):', e);
+}
+try {
+    await m.react('🕓');
+    const url = yt_play[0].url;
+
+    const apiSylphy = await fetch(`https://api.sylphy.xyz/download/ytmp4?url=${encodeURIComponent(url)}`);
+    const resSylphy = await apiSylphy.json();
+
+    if (resSylphy.status && resSylphy.res?.url) {
+        const { title, url: videoUrl } = resSylphy.res;
+
+        await conn.sendMessage(m.chat, {
+            video: { url: videoUrl },
+            caption: `🎬 *${title}*`
+        }, { quoted: m });
+
+        await m.react('✅');
+        return; // ✅ Éxito, no continuar con otras APIs
+    }
+} catch (e) {
+    console.warn('Error en API (Sylphy):', e);
+}
+
+    try {
+    await m.react('🕓');
+    const url = yt_play[0].url;
+
+    const api3 = await fetch(`https://api.vreden.my.id/api/ytmp4?url=${encodeURIComponent(url)}`);
+    const res3 = await api3.json();
+
+    if (res3.status === 200 && res3.result?.download?.url) {
+        const {
+            metadata: { title, timestamp, views, author },
+            download: { url: downloadUrl }
+        } = res3.result;
+
+        await conn.sendMessage(m.chat, {
+            video: { url: downloadUrl },
+            caption: `🎬 *${title}*\n📺 Duración: ${timestamp}\n👀 Vistas: ${views.toLocaleString()}\n🎙 Autor: ${author.name}\n🔗 Canal: ${author.url}`
+        }, { quoted: m });
+
+        await m.react('✅');
+        return; // ✅ Éxito
+    }
+} catch (e) {
+    console.warn('Error en API 3:', e);
+}
+    
+
+
+// Si falla la primera, pasa a la siguiente
+try {
+    await m.react('🕓');
+    const url = yt_play[0].url;
+
+    const api2 = await fetch(`https://api.neoxr.eu/api/youtube?url=${encodeURIComponent(url)}&type=video&quality=720p&apikey=Paimon`);
+    const res2 = await api2.json();
+
+    if (res2.status && res2.data?.url) {
+        const { title, fduration, views, channel } = res2;
+        const { url: downloadUrl } = res2.data;
+
+        await conn.sendMessage(m.chat, {
+            video: { url: downloadUrl },
+            caption: `*${title}*\nDuración: ${fduration}\nVistas: ${views}\nCanal: ${channel}`
+        }, { quoted: m });
+
+        await m.react('✅');
+        return; // ✅ Éxito, no continuar con otras APIs
+    }
+} catch (e) {
+    console.warn('Error en API 2:', e);
+}
+
+// Si falla la segunda, pasa a la tercera
+
+try {
+    await m.react('🕓');
+    const url = yt_play[0].url;
+
+    const api1 = await fetch('https://api.siputzx.my.id/api/d/ytmp4', {
+        method: 'POST',
+        headers: {
+            'accept': '*/*',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ url })
+    });
+
+    const res1 = await api1.json();
+
+    if (res1.status && res1.data?.dl) {
+        const { title, dl } = res1.data;
+        await conn.sendMessage(m.chat, {
+            video: { url: dl },
+            caption: `🎬 *${title}*`
+        }, { quoted: m });
+
+        await m.react('✅');
+        return; // ✅ Éxito, no continuar con otras APIs
+    }
+} catch (e) {
+    console.warn('Error en API 1:', e);
+}
+
+
+// Si todas fallan:
+await m.react('❌');
+m.reply('❌ No se pudo obtener el video con ninguna de las APIs. Intenta con otro enlace o usa el comando playv2.');
+//
 }
 
 
 }
-
-
-}
-handler.help = ['play', 'play2'];
+handler.help = ['playp', 'play2'];
 handler.tags = ['descargas'];
-handler.command = ['play2', 'play']
-//handler.yenes = 3
+handler.command = ['play2', 'playp']
 handler.group = true;
 export default handler;
 
