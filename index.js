@@ -93,6 +93,50 @@ async function startBot() {
             if(buttonId === 'banuser') {
                 await sock.sendMessage(from, { text: 'Envía el número del usuario (ej: 5731xxxxxxx):' });
                 sock.ev.once('messages.upsert', async ({ messages }) => {
+                    if(text.startsWith('/balance')) {
+    const balance = getCoins(sender);
+    await sock.sendMessage(from, { text: `💰 Tu saldo: ${balance} monedas.` });
+}
+
+if(text.startsWith('/flip')) {
+    const args = text.split(' ');
+    const bet = parseInt(args[1]);
+    if(isNaN(bet) || bet <= 0) {
+        await sock.sendMessage(from, { text: 'Debes apostar un número válido de monedas.' });
+    } else if(getCoins(sender) < bet) {
+        await sock.sendMessage(from, { text: 'No tienes suficientes monedas para apostar eso.' });
+    } else {
+        // Cara o cruz aleatorio
+        const result = Math.random() < 0.5 ? 'cara' : 'cruz';
+        const win = Math.random() < 0.5; // 50% chance
+        if(win) {
+            const newBalance = updateCoins(sender, bet); // ganas lo apostado
+            await sock.sendMessage(from, { text: `🎉 Salió ${result}, ganaste ${bet} monedas!\nNuevo saldo: ${newBalance}` });
+        } else {
+            const newBalance = updateCoins(sender, -bet);
+            await sock.sendMessage(from, { text: `😢 Salió ${result}, perdiste ${bet} monedas.\nNuevo saldo: ${newBalance}` });
+        }
+    }
+}
+
+if(text.startsWith('/lottery')) {
+    const args = text.split(' ');
+    const bet = parseInt(args[1]);
+    if(isNaN(bet) || bet <= 0) {
+        await sock.sendMessage(from, { text: 'Debes apostar un número válido de monedas.' });
+    } else if(getCoins(sender) < bet) {
+        await sock.sendMessage(from, { text: 'No tienes suficientes monedas para apostar eso.' });
+    } else {
+        const win = Math.random() < 0.5; // 50% chance
+        if(win) {
+            const newBalance = updateCoins(sender, bet*2);
+            await sock.sendMessage(from, { text: `🎉 ¡Felicidades! Ganaste ${bet*2} monedas!\nNuevo saldo: ${newBalance}` });
+        } else {
+            const newBalance = updateCoins(sender, -bet);
+            await sock.sendMessage(from, { text: `😢 Perdiste ${bet} monedas.\nNuevo saldo: ${newBalance}` });
+        }
+    }
+}
                     const userIdMsg = messages[0].message.conversation + '@s.whatsapp.net';
                     if(!userBan.includes(userIdMsg)) userBan.push(userIdMsg);
                     fs.writeFileSync('./database/userBan.json', JSON.stringify(userBan));
