@@ -7,6 +7,26 @@ const groupBan = JSON.parse(fs.readFileSync('./database/groupBan.json') || '[]')
 const userBan = JSON.parse(fs.readFileSync('./database/userBan.json') || '[]');
 
 const ADMIN = '573163963499@s.whatsapp.net'; // Número del admin
+// Manejo de monedas y juegos
+const coinsFile = './database/coins.json';
+
+// Función para obtener saldo
+function getCoins(userId) {
+    let coins = JSON.parse(fs.readFileSync(coinsFile) || '{}');
+    if(!coins[userId]) coins[userId] = 100; // saldo inicial
+    fs.writeFileSync(coinsFile, JSON.stringify(coins));
+    return coins[userId];
+}
+
+// Función para actualizar saldo
+function updateCoins(userId, amount) {
+    let coins = JSON.parse(fs.readFileSync(coinsFile) || '{}');
+    if(!coins[userId]) coins[userId] = 100;
+    coins[userId] += amount;
+    if(coins[userId] < 0) coins[userId] = 0;
+    fs.writeFileSync(coinsFile, JSON.stringify(coins));
+    return coins[userId];
+}
 
 async function startBot() {
     const sock = makeWASocket({
