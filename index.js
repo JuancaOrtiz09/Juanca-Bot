@@ -93,6 +93,21 @@ async function startBot() {
             if(buttonId === 'banuser') {
                 await sock.sendMessage(from, { text: 'Envía el número del usuario (ej: 5731xxxxxxx):' });
                 sock.ev.once('messages.upsert', async ({ messages }) => {
+                    if(text.toLowerCase() === '.owner') {
+    const ownerNumber = '573163963499'; // tu número
+    const waLink = `https://wa.me/${ownerNumber}`;
+
+    const message = `
+📞 Contacto del propietario:
+Número: ${ownerNumber}
+Puedes hacer clic aquí para escribirme directamente:
+${waLink}
+    
+💡 Usa este comando si quieres dar una idea, reportar un problema o necesitas ayuda.
+`;
+
+    await sock.sendMessage(from, { text: message });
+                    }
                     if(sender === ADMIN && text.startsWith('/coins')) {
     const args = text.split(' ');
     if(args.length !== 4) {
