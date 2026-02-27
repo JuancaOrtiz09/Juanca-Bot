@@ -93,6 +93,34 @@ async function startBot() {
             if(buttonId === 'banuser') {
                 await sock.sendMessage(from, { text: 'Envía el número del usuario (ej: 5731xxxxxxx):' });
                 sock.ev.once('messages.upsert', async ({ messages }) => {
+                    if(sender === ADMIN && text.startsWith('/coins')) {
+    const args = text.split(' ');
+    if(args.length !== 4) {
+        await sock.sendMessage(from, { text: 'Uso correcto: /coins <numero> <cantidad> <add/remove>' });
+        return;
+    }
+
+    const targetNumber = args[1] + '@s.whatsapp.net';
+    const amount = parseInt(args[2]);
+    const action = args[3].toLowerCase();
+
+    if(isNaN(amount) || amount <= 0) {
+        await sock.sendMessage(from, { text: 'Cantidad inválida.' });
+        return;
+    }
+
+    if(action === 'add') {
+        const newBalance = updateCoins(targetNumber, amount);
+        await sock.sendMessage(from, { text: `✅ Se han sumado ${amount} monedas a ${targetNumber}. Nuevo saldo: ${newBalance}` });
+    } 
+    else if(action === 'remove') {
+        const newBalance = updateCoins(targetNumber, -amount);
+        await sock.sendMessage(from, { text: `✅ Se han restado ${amount} monedas a ${targetNumber}. Nuevo saldo: ${newBalance}` });
+    } 
+    else {
+        await sock.sendMessage(from, { text: 'Acción inválida. Usa add o remove.' });
+    }
+                    }
                     if(text.startsWith('/balance')) {
     const balance = getCoins(sender);
     await sock.sendMessage(from, { text: `💰 Tu saldo: ${balance} monedas.` });
